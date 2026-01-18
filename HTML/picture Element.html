@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<h2>Thay đổi hình ảnh theo kích cỡ trình duyệt</h2>
+
+<picture>
+  
+  <source media="(min-width: 465px)" srcset="maytinh,dienthoai,caphe.jpg">
+  <img src="anh dtcl.png" style="width:auto;">
+</picture>
+
+<p>Thay đổi kích thước trình duyệt để xem các phiên bản khác nhau của hình ảnh được tải ở các kích thước khung nhìn khác nhau. Trình duyệt tìm kiếm phần tử nguồn đầu tiên mà truy vấn phương tiện khớp với chiều rộng khung nhìn hiện tại của người dùng và tải hình ảnh được chỉ định trong thuộc tính srcset.</p>
+
+<p>Thẻ img là bắt buộc vì nó là thẻ con cuối cùng trong khối khai báo hình ảnh. Thẻ img được sử dụng để đảm bảo khả năng tương thích ngược với các trình duyệt không hỗ trợ thẻ picture, hoặc nếu không có thẻ nguồn nào khớp.
+</p>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<h2>The picture Element</h2>
+
+<picture>
+  <source srcset="anh dtcl.png">
+  <source srcset="maytinh,dienthoai,caphe.jpg">
+  <img src="img_beatles.gif" alt="Beatles" style="width:auto;">
+</picture>
+
+<p>Thẻ hình ảnh có thể được sử dụng khi định dạng hình ảnh không được tất cả các thiết bị hỗ trợ.</p>
+
+<p>Thiết bị sẽ sử dụng định dạng hình ảnh đầu tiên mà nó hỗ trợ và bỏ qua các định dạng hình ảnh còn lại.</p>
+
+</body>
+</html>
