@@ -1,0 +1,15 @@
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\bin\Debug\net9.0\NewApp.exe
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\bin\Debug\net9.0\NewApp.deps.json
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\bin\Debug\net9.0\NewApp.runtimeconfig.json
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\bin\Debug\net9.0\NewApp.dll
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\bin\Debug\net9.0\NewApp.pdb
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\NewApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\NewApp.AssemblyInfoInputs.cache
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\NewApp.AssemblyInfo.cs
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\NewApp.csproj.CoreCompileInputs.cache
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\NewApp.sourcelink.json
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\NewApp.dll
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\refint\NewApp.dll
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\NewApp.pdb
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\NewApp.genruntimeconfig.cache
+C:\Phat trien phan mem quan ly\NetCoreAPI1\NewApp\obj\Debug\net9.0\ref\NewApp.dll
