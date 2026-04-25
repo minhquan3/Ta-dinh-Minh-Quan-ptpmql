@@ -1,10 +1,11 @@
 @model FirstWebMVC.Models.Student
 
-<h2>Thêm sinh viên</h2>
-<form asp-action="Create" method="post">
+<h2>Sửa sinh viên</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
     <label>Mã SV:</label>
     <input asp-for="StudentCode" /><br />
     <label>Họ tên:</label>
     <input asp-for="FullName" /><br />
-    <button type="submit">Lưu</button>
+    <button type="submit">Cập nhật</button>
 </form>

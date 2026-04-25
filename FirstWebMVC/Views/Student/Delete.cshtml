@@ -1,0 +1,10 @@
+@model FirstWebMVC.Models.Student
+
+<h2>Xóa sinh viên</h2>
+<p>Bạn có chắc muốn xóa sinh viên: @Model.FullName (@Model.StudentCode)?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Xóa</button>
+    <a asp-action="Index">Hủy</a>
+</form>

@@ -10,7 +10,6 @@ namespace FirstWebMVC.Data
         {
         }
 
-        // Khai báo DbSet cho bảng Students
         public DbSet<Student> Students { get; set; }
     }
 }
