@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using FirstWebMVC.Data;
 using FirstWebMVC.Models;
+using FirstWebMVC.ViewModels;   // thêm namespace để dùng ViewModel
+using System.Linq;
 
 namespace FirstWebMVC.Controllers
 {
@@ -13,11 +15,19 @@ namespace FirstWebMVC.Controllers
             _context = context;
         }
 
-        // READ: Hiển thị danh sách
+        // READ: Hiển thị danh sách sinh viên kèm tên khoa
         public IActionResult Index()
         {
-            var students = _context.Students.ToList();
-            return View(students);
+            var data = from s in _context.Students
+                       join f in _context.Faculties on s.FacultyID equals f.FacultyID
+                       select new StudentFacultyViewModel
+                       {
+                           StudentCode = s.StudentCode,
+                           FullName = s.FullName,
+                           FacultyName = f.FacultyName
+                       };
+
+            return View(data.ToList());
         }
 
         // CREATE: GET
@@ -43,7 +53,7 @@ namespace FirstWebMVC.Controllers
         public IActionResult Edit(int id)
         {
             var student = _context.Students.Find(id);
-            if (student == null) return View("NotFound"); // gọi view NotFound.cshtml
+            if (student == null) return View("NotFound");
             return View(student);
         }
 
@@ -64,7 +74,7 @@ namespace FirstWebMVC.Controllers
         public IActionResult Delete(int id)
         {
             var student = _context.Students.Find(id);
-            if (student == null) return View("NotFound"); // gọi view NotFound.cshtml
+            if (student == null) return View("NotFound");
             return View(student);
         }
 

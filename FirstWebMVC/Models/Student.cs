@@ -16,5 +16,13 @@ namespace FirstWebMVC.Models
 
         [Range(18, 60, ErrorMessage = "Tuổi phải từ 18 đến 60")]
         public int Age { get; set; }
+
+        // Khóa ngoại liên kết tới Faculty
+        [Required(ErrorMessage = "Phải chọn khoa")]
+        public int FacultyID { get; set; }
+
+        // Navigation property
+        public Faculty Faculty { get; set; }
     }
 }
+
