@@ -1,0 +1,14 @@
+<form method="post">
+    <label>Mã sinh viên:</label>
+    <input type="text" name="StudentCode" /><br />
+
+    <label>Họ tên:</label>
+    <input type="text" name="FullName" /><br />
+
+    <button type="submit">Gửi</button>
+</form>
+
+@if(ViewBag.Info != null)
+{
+    <h3>@ViewBag.Info</h3>
+}
