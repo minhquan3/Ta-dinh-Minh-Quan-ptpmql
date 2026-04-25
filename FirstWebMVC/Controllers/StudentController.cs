@@ -43,7 +43,7 @@ namespace FirstWebMVC.Controllers
         public IActionResult Edit(int id)
         {
             var student = _context.Students.Find(id);
-            if (student == null) return NotFound();
+            if (student == null) return View("NotFound"); // gọi view NotFound.cshtml
             return View(student);
         }
 
@@ -64,7 +64,7 @@ namespace FirstWebMVC.Controllers
         public IActionResult Delete(int id)
         {
             var student = _context.Students.Find(id);
-            if (student == null) return NotFound();
+            if (student == null) return View("NotFound"); // gọi view NotFound.cshtml
             return View(student);
         }
 
