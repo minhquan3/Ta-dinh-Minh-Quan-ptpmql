@@ -1,0 +1,26 @@
+@model IEnumerable<FirstWebMVC.ViewModels.OrderDetailViewModel>
+
+<h2>Chi tiết đơn hàng của khách hàng</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Khách hàng</th>
+            <th>Ngày đặt</th>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CustomerName</td>
+            <td>@item.OrderDate.ToShortDateString()</td>
+            <td>@item.ProductName</td>
+            <td>@item.Quantity</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+    </tbody>
+</table>

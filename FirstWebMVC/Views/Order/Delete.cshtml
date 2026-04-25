@@ -1,0 +1,9 @@
+@model FirstWebMVC.Models.Order
+
+<h2>Xóa đơn hàng</h2>
+<p>Bạn có chắc muốn xóa đơn hàng ngày <strong>@Model.OrderDate.ToShortDateString()</strong> của khách hàng ID <strong>@Model.CustomerID</strong>?</p>
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="OrderID" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>

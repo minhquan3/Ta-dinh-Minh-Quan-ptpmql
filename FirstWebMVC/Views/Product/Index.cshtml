@@ -1,0 +1,20 @@
+@model IEnumerable<FirstWebMVC.Models.Product>
+
+<h2>Danh sách sản phẩm</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+    </tbody>
+</table>

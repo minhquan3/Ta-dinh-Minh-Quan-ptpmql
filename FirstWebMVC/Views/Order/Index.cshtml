@@ -1,0 +1,29 @@
+@model IEnumerable<FirstWebMVC.Models.Order>
+
+<h2>Danh sách đơn hàng</h2>
+<a asp-action="Create" class="btn btn-primary">Thêm đơn hàng</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã đơn hàng</th>
+            <th>Ngày đặt</th>
+            <th>Mã khách hàng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.OrderID</td>
+            <td>@item.OrderDate</td>
+            <td>@item.CustomerID</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.OrderID">Sửa</a> |
+                <a asp-action="Delete" asp-route-id="@item.OrderID">Xóa</a> |
+                <a asp-action="Details" asp-route-customerId="@item.CustomerID">Chi tiết</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
