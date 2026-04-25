@@ -1,0 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using FirstWebMVC.Models;
+
+namespace FirstWebMVC.Data
+{
+    public class ApplicationDbContext : DbContext
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
+        // Khai báo DbSet cho bảng Students
+        public DbSet<Student> Students { get; set; }
+    }
+}

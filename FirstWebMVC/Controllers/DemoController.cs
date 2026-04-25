@@ -17,18 +17,18 @@ namespace FirstWebMVC.Controllers
             ViewBag.StudentCode = "123456";
             return View();
         }
+
+        [HttpGet]
+        public IActionResult InputName()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult InputName(string fullName)
+        {
+            ViewBag.Greeting = "Xin chào " + fullName;
+            return View();
+        }
     }
 }
-[HttpGet]
-public IActionResult InputName()
-{
-    return View();
-}
-
-[HttpPost]
-public IActionResult InputName(string fullName)
-{
-    ViewBag.Greeting = "Xin chào " + fullName;
-    return View();
-}
-
