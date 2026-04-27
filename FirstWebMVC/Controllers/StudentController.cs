@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using FirstWebMVC.Data;
 using FirstWebMVC.Models;
-using FirstWebMVC.ViewModels;   // thêm namespace để dùng ViewModel
+using FirstWebMVC.ViewModels;   // để dùng StudentFacultyViewModel
+using OfficeOpenXml;           // để đọc Excel bằng EPPlus
+using System.IO;
 using System.Linq;
 
 namespace FirstWebMVC.Controllers
@@ -22,8 +24,10 @@ namespace FirstWebMVC.Controllers
                        join f in _context.Faculties on s.FacultyID equals f.FacultyID
                        select new StudentFacultyViewModel
                        {
+                           Id = s.Id,
                            StudentCode = s.StudentCode,
                            FullName = s.FullName,
+                           Age = s.Age,
                            FacultyName = f.FacultyName
                        };
 
@@ -53,7 +57,7 @@ namespace FirstWebMVC.Controllers
         public IActionResult Edit(int id)
         {
             var student = _context.Students.Find(id);
-            if (student == null) return View("NotFound");
+            if (student == null) return NotFound();
             return View(student);
         }
 
@@ -74,7 +78,7 @@ namespace FirstWebMVC.Controllers
         public IActionResult Delete(int id)
         {
             var student = _context.Students.Find(id);
-            if (student == null) return View("NotFound");
+            if (student == null) return NotFound();
             return View(student);
         }
 
@@ -87,6 +91,56 @@ namespace FirstWebMVC.Controllers
             {
                 _context.Students.Remove(student);
                 _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        // UPLOAD: GET
+        public IActionResult Upload()
+        {
+            return View();
+        }
+
+        // UPLOAD: POST - đọc Excel và lưu vào DB
+        [HttpPost]
+        public IActionResult UploadExcelFile()
+        {
+            var file = Request.Form.Files[0];
+            if (file != null && file.Length > 0)
+            {
+                using (var stream = new MemoryStream())
+                {
+                    file.CopyTo(stream);
+                    using (var package = new ExcelPackage(stream))
+                    {
+                        var worksheet = package.Workbook.Worksheets[0];
+                        int rowCount = worksheet.Dimension.Rows;
+
+                        for (int row = 2; row <= rowCount; row++) // bỏ qua header
+                        {
+                            string studentCode = worksheet.Cells[row, 1].Text;
+                            string fullName = worksheet.Cells[row, 2].Text;
+                            int age = int.Parse(worksheet.Cells[row, 3].Text);
+                            string facultyName = worksheet.Cells[row, 4].Text;
+
+                            var faculty = _context.Faculties
+                                .FirstOrDefault(f => f.FacultyName == facultyName);
+
+                            if (faculty != null)
+                            {
+                                var student = new Student
+                                {
+                                    StudentCode = studentCode,
+                                    FullName = fullName,
+                                    Age = age,
+                                    FacultyID = faculty.FacultyID
+                                };
+                                _context.Students.Add(student);
+                            }
+                        }
+                        _context.SaveChanges();
+                    }
+                }
             }
             return RedirectToAction(nameof(Index));
         }

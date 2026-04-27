@@ -25,4 +25,3 @@ namespace FirstWebMVC.Models
         public Faculty Faculty { get; set; }
     }
 }
-
